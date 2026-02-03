@@ -8,6 +8,16 @@ st.set_page_config(page_title="🏓 Analyse TT", layout="wide")
 # -----------------------------
 # Helpers
 # -----------------------------
+def center_df(df):
+    """Centre horizontalement et verticalement le contenu d'un DataFrame."""
+    if df.empty:
+        return df
+    return df.style.set_properties(
+        **{
+            "text-align": "center",
+            "vertical-align": "middle"
+        }
+    )
 ZONE_COLS = ["CD", "Corps", "Revers"]
 ZONE_ROWS = ["Court", "Long"]
 
