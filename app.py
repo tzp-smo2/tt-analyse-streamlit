@@ -4,20 +4,30 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="🏓 Analyse TT", layout="wide")
+st.markdown(
+    """
+    <style>
+    /* Centre le texte dans les cellules */
+    [data-testid="stDataFrame"] div[role="gridcell"]{
+        justify-content: center !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+    /* Centre le texte dans les entêtes de colonnes */
+    [data-testid="stDataFrame"] div[role="columnheader"]{
+        justify-content: center !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # -----------------------------
 # Helpers
 # -----------------------------
-def center_df(df):
-    """Centre horizontalement et verticalement le contenu d'un DataFrame."""
-    if df.empty:
-        return df
-    return df.style.set_properties(
-        **{
-            "text-align": "center",
-            "vertical-align": "middle"
-        }
-    )
+
 ZONE_COLS = ["CD", "Corps", "Revers"]
 ZONE_ROWS = ["Court", "Long"]
 
